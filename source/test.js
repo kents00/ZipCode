@@ -1,7 +1,5 @@
-// Import the necessary modules
 const { queryDatabase, db } = require('./modular.js');
 
-// Mock the database connection
 jest.mock('sqlite3', () => {
   const mDatabase = {
     all: jest.fn((query, params, callback) => {

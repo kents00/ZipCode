@@ -1,20 +1,30 @@
 {
-  "name": "javascript",
+  "name": "zipcode",
   "version": "1.0.0",
   "main": "basic.js",
   "scripts": {
     "test": "jest"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Kent Edoloverio",
+  "license": "MIT",
+  "description": "“Directory of zip codes in one package!!”",
   "dependencies": {
     "express": "^4.19.2",
+    "path-browserify": "^1.0.1",
     "sql.js": "^1.10.3",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "^5.1.7",
+    "util": "^0.12.5"
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kents00/ZipCode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kents00/ZipCode/issues"
+  },
+  "homepage": "https://github.com/kents00/ZipCode#readme"
 }
