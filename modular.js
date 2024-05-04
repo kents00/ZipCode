@@ -1,7 +1,5 @@
-const readline = require('readline');
 const sqlite3 = require('sqlite3').verbose();
 
-// Connect to the SQLite database
 const db = new sqlite3.Database('data/data.db', sqlite3.OPEN_READWRITE, (err) => {
   if (err) {
     console.error(err.message);
@@ -9,8 +7,8 @@ const db = new sqlite3.Database('data/data.db', sqlite3.OPEN_READWRITE, (err) =>
   console.log('Connected to the database.');
 });
 
-// Function to query the database based on user input
-function queryDatabase(input) {
+
+function queryDatabase(input, callback) {
   const query = `
     SELECT *
     FROM postal_data
@@ -22,25 +20,14 @@ function queryDatabase(input) {
   db.all(query, [wildcardInput, wildcardInput, wildcardInput, wildcardInput], (err, rows) => {
     if (err) {
       console.error(err.message);
-      return;
+      return callback(err, null);
     }
 
-    if (rows.length > 0) {
-      console.log('Possible outputs:');
-      rows.forEach(row => {
-        console.log('Region:', row.region);
-        console.log('Province:', row.province);
-        console.log('City:', row.city);
-        console.log('Zip Code:', row.zip_code);
-        console.log('---');
-        console.log('Database connection closed.');
-      });
-    } else {
-      console.log('Error: No matching locations found.');
-    }
+    callback(null, rows);
   });
 }
 
-// Sample usage
-queryDatabase('7204');
-queryDatabase('Sinacaban')
+module.exports = {
+  queryDatabase,
+  db
+};
