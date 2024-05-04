@@ -1,7 +1,7 @@
 # ZipCode
 “Directory of zip codes in one package!”
 
-The purpose of these files is to provide a solution for users to search for locations based on region, province, city, or zip code. The application uses SQLite as its database management system to store and retrieve data.
+The purpose of this project is to provide a solution for users to search for locations based on region, province, city, or zip code. The application uses SQLite as its database management system to store and retrieve data.
 
 ## **Installation**
 
